@@ -41,9 +41,11 @@ function EmployeeForm() {
                     'Content-Type': 'multipart/form-data',
                 },
             });
+            alert('Employee created successfully');
             console.log('Employee created successfully:', response.data);
             // Handle response (e.g., success message)
         } catch (error) {
+            alert('Error creating employee');
             console.error('Error creating employee:', error.response ? error.response.data : error.message);
             // Handle error (e.g., display error message)
         }
