@@ -40,6 +40,9 @@ const upload = multer({
   }
 });
 
+app.get('/', (req, res) => {
+    res.json("Connected to backend");
+});
 app.post('/dealsdray/register', async (req, res) => {
 	console.log("Admin Register : ",req.body);
 	const {f_userName, f_Pwd} = req.body;
