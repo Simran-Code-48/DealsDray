@@ -116,7 +116,7 @@ function EmployeeForm() {
                         name="image"
                         onChange={handleFileChange}
                         accept="image/png, image/jpeg"
-                        required
+                        
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                     <button
