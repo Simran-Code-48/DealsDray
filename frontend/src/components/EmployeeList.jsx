@@ -31,7 +31,7 @@ function EmployeeList() {
     const handleDelete = async (employeeId) => {
       try {
 
-          const response = await axios.delete(`http://localhost:4000/dealsdray/employees/${employeeId}`);
+          const response = await axios.delete(`https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees/${employeeId}`);
 
           console.log('Employee deleted:', response.data);
           alert('Employee deleted successfully!');

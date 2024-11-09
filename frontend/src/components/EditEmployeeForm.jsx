@@ -18,7 +18,7 @@ function EmployeeForm() {
     useEffect(() => {
         const fetchEmployeeData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/dealsdray/employees/${id}`);
+                const response = await axios.get(`https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees/${id}`);
                 const data = response.data;
                 setEmployee({
                     name: data.f_Name,
@@ -63,7 +63,7 @@ function EmployeeForm() {
         }
 
         try {
-            const response = await axios.put(`http://localhost:4000/dealsdray/employees/${id}`, formData, {
+            const response = await axios.put(`https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
