@@ -10,7 +10,7 @@ function EmployeeList() {
     useEffect(() => {
         const fetchEmployees = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/dealsdray/employees', {
+                const response = await axios.get('https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees', {
                     params: {
                         page: currentPage,
                         limit: 10, // Adjust limit as necessary
