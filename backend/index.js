@@ -40,7 +40,7 @@ const upload = multer({
   }
 });
 
-app.get('/', (req, res) => {
+app.get('/welcome', (req, res) => {
     res.json("Connected to backend");
 });
 app.post('/dealsdray/register', async (req, res) => {
