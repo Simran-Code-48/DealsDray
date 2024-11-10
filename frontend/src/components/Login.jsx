@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+const vercelURL = 'https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app';
+const localhostURL = 'http://localhost:8080'
+const backendURL = vercelURL;
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,9 +14,8 @@ function Login() {
         setLoading(true);
         setErrorMessage('');
         
-        // Send login request to the backend API
         try {
-            const response = await fetch('https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/login', {
+            const response = await fetch(`${backendURL}/dealsdray/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,8 +29,7 @@ function Login() {
             const data = await response.json();
 
             if (response.ok) {
-                // Redirect or handle success
-                window.location.href = data.redirect; // Example: redirect to /employees
+                window.location.href = data.redirect;
             } else {
                 setErrorMessage(data.message || 'Something went wrong');
             }

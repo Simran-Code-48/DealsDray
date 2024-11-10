@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // For making API requests
+import axios from 'axios';
 
+const vercelURL = 'https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app';
+const localhostURL = 'http://localhost:8080'
+const backendURL = vercelURL;
 function EmployeeForm() {
     const [employee, setEmployee] = useState({
         name: '',
@@ -36,18 +39,16 @@ function EmployeeForm() {
         }
 
         try {
-            const response = await axios.post('https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees', formData, {
+            const response = await axios.post(`${backendURL}/dealsdray/employees`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
             });
             alert('Employee created successfully');
             console.log('Employee created successfully:', response.data);
-            // Handle response (e.g., success message)
         } catch (error) {
             alert('Error creating employee');
             console.error('Error creating employee:', error.response ? error.response.data : error.message);
-            // Handle error (e.g., display error message)
         }
     };
 
@@ -112,6 +113,41 @@ function EmployeeForm() {
                             />
                             <span className="ml-2 text-gray-700">Female</span>
                         </label>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                name="course"
+                                value="MCA"
+                                checked={employee.course.includes('MCA')}
+                                onChange={handleChange}
+                                className="h-5 w-5 text-blue-600"
+                            />
+                            <span className="ml-2 text-gray-700">MCA</span>
+                        </div>
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                name="course"
+                                value="BCA"
+                                checked={employee.course.includes('BCA')}
+                                onChange={handleChange}
+                                className="h-5 w-5 text-blue-600"
+                            />
+                            <span className="ml-2 text-gray-700">BCA</span>
+                        </div>
+                        <div className="flex items-center">
+                            <input
+                                type="checkbox"
+                                name="course"
+                                value="BSC"
+                                checked={employee.course.includes('BSC')}
+                                onChange={handleChange}
+                                className="h-5 w-5 text-blue-600"
+                            />
+                            <span className="ml-2 text-gray-700">BSC</span>
+                        </div>
                     </div>
                     <input
                         type="file"

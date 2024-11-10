@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+const vercelURL = 'https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app';
+const localhostURL = 'http://localhost:8080'
+const backendURL = vercelURL;
 const Register = () => {
   const [f_userName, setUserName] = useState('');
   const [f_Pwd, setPwd] = useState('');
@@ -11,7 +14,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/dealsdray/register', { f_userName, f_Pwd });
+      const response = await axios.post(`${backendURL}/dealsdray/register`, { f_userName, f_Pwd });
       setSuccess(response.data.message);
     } catch (err) {
       setError(err.response ? err.response.data.message : 'An error occurred');

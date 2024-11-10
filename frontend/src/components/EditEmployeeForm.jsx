@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+const vercelURL = 'https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app';
+const localhostURL = 'http://localhost:8080'
+const backendURL = vercelURL;
 function EmployeeForm() {
-    const { id } = useParams(); // Get the employeeId from the URL parameter
+    const { id } = useParams();
     const [employee, setEmployee] = useState({
         name: '',
         email: '',
@@ -14,11 +16,10 @@ function EmployeeForm() {
         image: null,
     });
 
-    // Fetch employee data from the API when the component mounts
     useEffect(() => {
         const fetchEmployeeData = async () => {
             try {
-                const response = await axios.get(`https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees/${id}`);
+                const response = await axios.get(`${backendURL}/dealsdray/employees/${id}`);
                 const data = response.data;
                 setEmployee({
                     name: data.f_Name,
@@ -50,7 +51,6 @@ function EmployeeForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Create FormData to send the form data along with the image
         const formData = new FormData();
         formData.append('f_Name', employee.name);
         formData.append('f_Email', employee.email);
@@ -63,7 +63,7 @@ function EmployeeForm() {
         }
 
         try {
-            const response = await axios.put(`https://backend-8nriwtfsk-simran-code-48s-projects.vercel.app/dealsdray/employees/${id}`, formData, {
+            const response = await axios.put(`${backendURL}/dealsdray/employees/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -145,7 +145,6 @@ function EmployeeForm() {
                             <span className="ml-2 text-gray-700">Female</span>
                         </label>
                     </div>
-                    {/* Checkbox for Course Selection */}
                     <div className="space-y-2">
                         <div className="flex items-center">
                             <input

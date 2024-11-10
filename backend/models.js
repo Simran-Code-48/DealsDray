@@ -22,6 +22,7 @@ const employeeSchema = new mongoose.Schema({
   f_Designation: { type: String, required: true },
   f_gender: { type: String, required: true },
   f_Course: { type: String },
+  f_Active: { type: Boolean, required: true},
   f_Createdate: { type: Date, default: Date.now }
 });
 
